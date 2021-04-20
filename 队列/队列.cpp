@@ -9,23 +9,29 @@ struct Queue {
 	struct Node* frontNode;
 	struct Node* tailNode;
 };
-struct Node* CreatNode(int data) {//初始化节点
+struct Node* CreatNode(int data);//初始化节点
+struct Queue* CreatQueue();//新建队列
+int empty(struct Queue* myQueue);//判断队列是否为空
+void push(struct Queue* myQueue, int data);//入队
+void pop(struct Queue* myQueue);//出队
+int front(struct Queue* myQueue);//返回队头
+struct Node* CreatNode(int data) {
 	struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
 	newNode->data = data;
 	newNode->next = NULL;
 	return newNode;
 }
-struct Queue* CreatQueue() {//新建队列
+struct Queue* CreatQueue() {
 	struct Queue* myQueue = (struct Queue*)malloc(sizeof(struct Queue));
 	myQueue->frontNode = myQueue->tailNode = NULL;
 	myQueue->size = 0;
 	return myQueue;
 }
-int empty(struct Queue* myQueue) {//判断是否为空
+int empty(struct Queue* myQueue) {
 	if (myQueue->size == 0)return 0;
 	return 1;
 }
-void push(struct Queue* myQueue, int data) {//入队
+void push(struct Queue* myQueue, int data) {
 	struct Node* node1 = CreatNode(data);
 	if (myQueue->size == 0) {
 		myQueue->frontNode = myQueue->tailNode = node1;
@@ -36,7 +42,7 @@ void push(struct Queue* myQueue, int data) {//入队
 	}
 	myQueue->size++;
 }
-void pop(struct Queue* myQueue) {//出队
+void pop(struct Queue* myQueue) {
 	if (myQueue->size == 0) {
 		printf("队为空");
 		return;
@@ -48,7 +54,7 @@ void pop(struct Queue* myQueue) {//出队
 		myQueue->size--;
 	}
 }
-int front(struct Queue* myQueue){//获取队头元素
+int front(struct Queue* myQueue){
 	if (myQueue->size == 0) {
 		printf("队为空，无法获取队头元素");
 		system("pause");
