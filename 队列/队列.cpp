@@ -72,7 +72,7 @@ int main(void){
 	while (empty(myQueue)) {
 		printf("%d",front(myQueue));
 		printf("\n");
-		pop(myQueue);
+		pop(myQueue);//出队
 	}
 
 }
