@@ -1,10 +1,10 @@
 ﻿#include<stdio.h>
 #include<stdlib.h>
-struct Node {
+struct Node {//节点
 	int data;
 	struct Node* next;
 };
-struct Queue {
+struct Queue {//队列
 	int size;
 	struct Node* frontNode;
 	struct Node* tailNode;
@@ -66,7 +66,7 @@ int front(struct Queue* myQueue){
 }
 int main(void){
 	struct Queue* myQueue = CreatQueue();
-	push(myQueue,1);
+	push(myQueue, 1);
 	push(myQueue, 2);
 	push(myQueue, 3);
 	push(myQueue, 4);
