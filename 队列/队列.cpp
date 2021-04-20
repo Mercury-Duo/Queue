@@ -25,7 +25,7 @@ int empty(struct Queue* myQueue) {//判断是否为空
 	if (myQueue->size == 0)return 0;
 	return 1;
 }
-void push(struct Queue* myQueue, int data) {
+void push(struct Queue* myQueue, int data) {//入队
 	struct Node* node1 = CreatNode(data);
 	if (myQueue->size == 0) {
 		myQueue->frontNode = myQueue->tailNode = node1;
@@ -36,7 +36,7 @@ void push(struct Queue* myQueue, int data) {
 	}
 	myQueue->size++;
 }
-void pop(struct Queue* myQueue) {
+void pop(struct Queue* myQueue) {//出队
 	if (myQueue->size == 0) {
 		printf("队为空");
 		return;
@@ -48,5 +48,13 @@ void pop(struct Queue* myQueue) {
 		myQueue->size--;
 	}
 }
-
+int front(struct Queue* myQueue){//获取队头元素
+	if (myQueue->size == 0) {
+		printf("队为空，无法获取队头元素");
+		return 0;
+	}
+	else {
+		return myQueue->frontNode->data;
+	}
+}
 int main(void){}
