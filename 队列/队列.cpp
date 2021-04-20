@@ -51,10 +51,28 @@ void pop(struct Queue* myQueue) {//出队
 int front(struct Queue* myQueue){//获取队头元素
 	if (myQueue->size == 0) {
 		printf("队为空，无法获取队头元素");
+		system("pause");
 		return 0;
 	}
 	else {
 		return myQueue->frontNode->data;
 	}
 }
-int main(void){}
+int main(void){
+	struct Queue* myQueue = CreatQueue();
+	push(myQueue,1);
+	push(myQueue, 2);
+	push(myQueue, 3);
+	push(myQueue, 4);
+	push(myQueue, 5);
+	push(myQueue, 6);
+	push(myQueue, 7);
+	push(myQueue, 8);
+	push(myQueue, 9);
+	while (empty(myQueue)) {
+		printf("%d",front(myQueue));
+		printf("\n");
+		pop(myQueue);
+	}
+
+}
